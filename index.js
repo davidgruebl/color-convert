@@ -1,4 +1,7 @@
 module.exports = function (str) {
+
+
+
   if (str[0] === '#' && str.length === 4) {
     return {
       red: parseInt(str[1] + str[1], 16),
@@ -15,17 +18,10 @@ module.exports = function (str) {
       alpha: 1
     }
   }
-  if (str[0] === 'r' && str[3] !== 'a') {
-    var sstr = str.replace('(', '').replace(')', '').substr(3).split(',')
-    return {
-      red: parseInt(sstr[0], 10),
-      green: parseInt(sstr[1], 10),
-      blue: parseInt(sstr[2], 10),
-      alpha: 1
-    }
-  }
-  if (str[0] === 'r' && str[3] === 'a') {
-    var sstr = str.replace('(', '').replace(')', '').substr(4).split(',')
+  if (str[0] === 'r') {
+    var sstr = str.replace(/[rgba()]/g, '').split(',')
+    sstr.push('1')
+
     return {
       red: parseInt(sstr[0], 10),
       green: parseInt(sstr[1], 10),
