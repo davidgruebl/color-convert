@@ -1,0 +1,23 @@
+{
+  "name": "color-convert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidgruebl/color-convert.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidgruebl/color-convert/issues"
+  },
+  "homepage": "https://github.com/davidgruebl/color-convert",
+  "devDependencies": {
+    "tap-spec": "^2.2.1",
+    "tape": "^3.5.0"
+  }
+}
