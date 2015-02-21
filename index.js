@@ -1,6 +1,5 @@
-function pCstring (str) {
+module.exports = function (str) {
   var type
-  var retVal
 
   if (str[0] === '#') {
     type = 'hex3'
@@ -17,10 +16,7 @@ function pCstring (str) {
   if (type === undefined) {
     throw new Error('Invalid color string')
   }
-  return pTColorTypeString(type, str)
-}
 
-function pTColorTypeString(type, str) {
   var retObj = {
     red: 0,
     green: 0,
@@ -56,5 +52,3 @@ function pTColorTypeString(type, str) {
   }
   return retObj
 }
-
-module.exports = pCstring
