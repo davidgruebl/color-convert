@@ -1,23 +1,19 @@
 module.exports = function (str) {
 
+  if (str[0] === '#') {
+    str = str.replace('#','')
+    if (str.length === 3) str = str.split('').map(function (char) {
+      return char + char
+    }).join('')
 
-
-  if (str[0] === '#' && str.length === 4) {
     return {
-      red: parseInt(str[1] + str[1], 16),
-      green: parseInt(str[2] + str[2], 16),
-      blue: parseInt(str[3] + str[3], 16),
+      red: parseInt(str[0] + str[1], 16),
+      green: parseInt(str[2] + str[3], 16),
+      blue: parseInt(str[4] + str[5], 16),
       alpha: 1
     }
   }
-  if (str[0] === '#' && str.length === 7) {
-    return {
-      red: parseInt(str[1] + str[2], 16),
-      green: parseInt(str[3] + str[4], 16),
-      blue: parseInt(str[5] + str[6], 16),
-      alpha: 1
-    }
-  }
+
   if (str[0] === 'r') {
     var sstr = str.replace(/[rgba()]/g, '').split(',')
     sstr.push('1')
