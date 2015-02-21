@@ -14,16 +14,15 @@ module.exports = function (str) {
     }
   }
 
-  if (str[0] === 'r') {
-    var sstr = str.replace(/[rgba()]/g, '').split(',')
-    sstr.push('1')
+  if (!(str[0] === 'r')) throw new Error('Invalid color string')
 
-    return {
-      red: parseInt(sstr[0], 10),
-      green: parseInt(sstr[1], 10),
-      blue: parseInt(sstr[2], 10),
-      alpha: parseInt(sstr[3], 10)
-    }
+  var channels = str.replace(/[rgba()]/g, '').split(',')
+  channels.push('1')
+
+  return {
+    red: parseInt(channels[0], 10),
+    green: parseInt(channels[1], 10),
+    blue: parseInt(channels[2], 10),
+    alpha: parseInt(channels[3], 10)
   }
-  throw new Error('Invalid color string')
 }
