@@ -3,27 +3,21 @@ function pCstring (str) {
   var retVal
 
   if (str[0] === '#') {
-    if(str.length === 4) {
-      type = 'hex3'
-    }
+    type = 'hex3'
     if (str.length === 7) {
       type = 'hex6'
     }
-    retVal = pTColorTypeString(type, str)
   }
   if (str[0] === 'r') {
-    if(str[3] != 'a') {
-      type = 'rgb'
-    }
+    type = 'rgb'
     if (str[3] === 'a') {
       type = "rgba"
     }
-    retVal = pTColorTypeString(type, str)
   }
   if (type === undefined) {
     throw new Error('Invalid color string')
   }
-  return retVal
+  return pTColorTypeString(type, str)
 }
 
 function pTColorTypeString(type, str) {
